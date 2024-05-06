@@ -1,4 +1,5 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Navbar from "@/components/Navbar";
 import Phone from "@/components/Phone";
 import { Check, Star } from "lucide-react";
 
