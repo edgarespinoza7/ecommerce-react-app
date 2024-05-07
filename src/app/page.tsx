@@ -1,5 +1,5 @@
+import { Icons } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import Navbar from "@/components/Navbar";
 import Phone from "@/components/Phone";
 import { Check, Star } from "lucide-react";
 
@@ -70,13 +70,15 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col justify-between items-center sm:items-start">
                   <div className="flex gap-0 5">
-                    <Star className="h-4 w-4 text-green-600 fill-green-600"/>
-                    <Star className="h-4 w-4 text-green-600 fill-green-600"/>
-                    <Star className="h-4 w-4 text-green-600 fill-green-600"/>
-                    <Star className="h-4 w-4 text-green-600 fill-green-600"/>
-                    <Star className="h-4 w-4 text-green-600 fill-green-600"/>
+                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
                   </div>
-                  <p><span className="font-semibold">1.250</span> happy customers</p>
+                  <p>
+                    <span className="font-semibold">1.250</span> happy customers
+                  </p>
                 </div>
               </div>
             </div>
@@ -84,9 +86,77 @@ export default function Home() {
 
           <div className="col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit">
             <div className="relative md:max-w-xl">
-              <img src="/your-image.png" alt="your-image" className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block" />
-              <img src="/line.png" alt="" className="absolute w-20 -left-6 -bottom-6 select-none"/>
+              <img
+                src="/your-image.png"
+                alt="your-image"
+                className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block"
+              />
+              <img
+                src="/line.png"
+                alt=""
+                className="absolute w-20 -left-6 -bottom-6 select-none"
+              />
               <Phone className="w-64" imgSrc="/testimonials/1.jpg" />
+            </div>
+          </div>
+        </MaxWidthWrapper>
+      </section>
+
+      {/* Value Proposition Section */}
+      <section className="bg-slate-100 py-24">
+        <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-32">
+          <div className="flex flex-col lg:flex-col items-center gap-4 sm:gap-6">
+            <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+              What our{" "}
+              <span className="relative px-2">
+                customers{" "}
+                <Icons.underline className="hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-green-500" />{" "}
+              </span>{" "}
+              say
+            </h2>
+            <img
+              src="/snake-2.png"
+              alt=""
+              className="w-24 order-0 lg:max-w-none"
+            />
+          </div>
+          <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:grid-cols-2 gap-y-16">
+            <div className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20">
+              {/* Five Starts */}
+              <div className="flex gap-0.5 mb-2">
+                <Star className="h-5 w-5 text-green-600 fill-green-600" />
+                <Star className="h-5 w-5 text-green-600 fill-green-600" />
+                <Star className="h-5 w-5 text-green-600 fill-green-600" />
+                <Star className="h-5 w-5 text-green-600 fill-green-600" />
+                <Star className="h-5 w-5 text-green-600 fill-green-600" />
+              </div>
+              {/* Customer Quote */}
+              <div className="text-lg leading-8">
+                <p>
+                  &quot;The case feels durable and I even got a compliment on
+                  the design. Had the case for two and a half months now and{" "}
+                  <span className="p-0.5 bg-slate-800 text-white">
+                    the image is superclear
+                  </span>
+                  , on the case I had before, the image started fading into
+                  yellow-ish color after a couple of weeks. Love it.&quot;
+                </p>
+              </div>
+              {/* Customer Profile */}
+              <div className="flex gap-4 mt-2">
+                <img
+                  src="/users/user-1.png"
+                  alt="user"
+                  className="rounded-full h-12 w-12 object-cover"
+                />
+                <div className="flex flex-col">
+                  <p className="font-semibold">Jonathan</p>
+                  <div className="flex gap-1.5 items-center text-zinc-600">
+                    <Check className="h-4 w-4 stroke-[3px] text-gray-600" />
+                    <p className="text-sm">Verified purchase</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </MaxWidthWrapper>
