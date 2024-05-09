@@ -1,30 +1,29 @@
-"use client";
+'use client'
 
-import { HTMLAttributes, useEffect, useRef, useState } from "react";
-import MaxWidthWrapper from "./MaxWidthWrapper";
-import { useInView } from "framer-motion";
-import { cn } from "@/lib/utils";
-import Phone from "./Phone";
+import { HTMLAttributes, useEffect, useRef, useState } from 'react'
+import MaxWidthWrapper from './MaxWidthWrapper'
+import { useInView } from 'framer-motion'
+import { cn } from '@/lib/utils'
+import Phone from './Phone'
 
 const PHONES = [
-  "/testimonials/1.jpg",
-  "/testimonials/2.jpg",
-  "/testimonials/3.jpg",
-  "/testimonials/4.jpg",
-  "/testimonials/5.jpg",
-  "/testimonials/6.jpg",
-];
+  '/testimonials/1.jpg',
+  '/testimonials/2.jpg',
+  '/testimonials/3.jpg',
+  '/testimonials/4.jpg',
+  '/testimonials/5.jpg',
+  '/testimonials/6.jpg',
+]
 
 function splitArray<T>(array: Array<T>, numParts: number) {
-  const result: Array<Array<T>> = [];
+  const result: Array<Array<T>> = []
 
   for (let i = 0; i < array.length; i++) {
-    const index = i % numParts;
+    const index = i % numParts
     if (!result[index]) {
-      result[index] = [];
-    } else {
-      result[index].push(array[i]);
+      result[index] = []
     }
+      result[index].push(array[i])
   }
 
   return result;
@@ -42,9 +41,7 @@ function ReviewColumn({
   msPerPixel?: number;
 }) {
   const columnRef = useRef<HTMLDivElement | null>(null);
-
   const [columnHeight, setColumnHeight] = useState(0);
-
   const duration = `${columnHeight * msPerPixel}ms`;
 
   useEffect(() => {
@@ -117,7 +114,7 @@ function ReviewGrid() {
   const columns = splitArray(PHONES, 3);
   const col1 = columns[0];
   const col2 = columns[1];
-  const col3 = splitArray(columns[2], 3);
+  const col3 = splitArray(columns[2], 2);
 
   return (
     <div
@@ -131,30 +128,38 @@ function ReviewGrid() {
             reviewClassName={(reviewIndex) =>
               cn({
                 "md:hidden": reviewIndex >= col1.length + col3[0].length,
-                "lg: hidden": reviewIndex >= col1.length,
+                "lg:hidden": reviewIndex >= col1.length,
               })
             }
             msPerPixel={10}
           />
           <ReviewColumn
-            reviews={[...col1, ...col3.flat(), ...col2]}
+            reviews={[...col2, ...col3[1]]}
             className="hidden md:block"
-            reviewClassName={(reviewIndex) => reviewIndex >= col2.length ? "lg:hidden" : ''}
+            reviewClassName={(reviewIndex) =>
+              reviewIndex >= col2.length ? "lg:hidden" : ""
+            }
             msPerPixel={15}
+          />
+          <ReviewColumn
+            reviews={col3.flat()}
+            className="hidden md:block"
+            msPerPixel={10}
           />
         </>
       ) : null}
-    </div>
-  );
+      <div className='pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-100' />
+      <div className='pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-100' />
+      </div>
+  )
 }
 
 export function Reviews() {
   return (
     <MaxWidthWrapper className="relative max-w-5xl">
       <img
-        src="/what-people-are-buying.png"
+      src="/what-people-are-buying.png"
         className="absolute select-none hidden xl:block -left-32 top-1/3"
-        alt=""
         aria-hidden="true"
       />
 
