@@ -204,10 +204,29 @@ export default function Home() {
         </MaxWidthWrapper>
 
         {/* Animated Reviews */}
-
         <div className="pt-16">
           <Reviews />
         </div>
+      </section>
+      {/* Upload your photo section */}
+      <section>
+        <MaxWidthWrapper className="py-24">
+          <div className="mb-12 px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl sm:text-center">
+              <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+                Upload your photo and get{" "}
+                <span className="relative px-2 bg-green-600 text-white">
+                  your own case{" "}
+                </span>{" "}
+                now
+              </h2>
+            </div>
+          </div>
+
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="relative flex flex-col items-center md:grid-cols-2 gap-40"></div>
+          </div>
+        </MaxWidthWrapper>
       </section>
     </div>
   );
